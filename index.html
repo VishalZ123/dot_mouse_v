@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>
+            EXPERIMENT
+        </title>
+        <script>
+            document.addEventListener("mousemove", function(event){
+                document.querySelector(".outer").style.top = document.querySelector(".inner").style.top =event.clientY;
+                document.querySelector(".outer").style.left = document.querySelector(".inner").style.left =event.clientX;
+            });
+        </script>
+        <style>
+            .outer {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                border: 2px solid #38eeee;
+                border-radius: 50%;
+                left: 0;
+                right: 0;
+                transform: translate(-50%, -50%);
+                transition: 0.15s;
+            }
+            .inner {
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background-color: yellow;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+                transform: translate(-50%, -50%);
+                transition: 0.1s;
+            }
+            .fragments {
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background-color: yellow;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+            }
+        </style>
+    </head>
+    <body bgcolor="rgba(1,1,1)">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <div id="entire">
+        <div class="outer"></div>
+        <div class="inner" v-on:click="scatter($event)"></div>
+        </div>
+        <script>
+            var anim = new Vue({
+                el: "#entire",
+                data: {
+                    visible: false
+                },
+                methods:{
+                    scatter: function(event){
+                        var tag = document.createElement("div");
+                        var element = document.getElementById("entire");
+                        element.appendChild(tag);
+                        tag.setAttribute("class", "fragments");
+                        tag.style.top= event.clientY;
+                        tag.style.left= event.clientX;
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
