@@ -46,27 +46,11 @@
     <body bgcolor="rgba(1,1,1)">
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
         <div id="entire">
-        <span style="color: skyblue;">Click anywhere</span>
+            <span style="color: white;">Click anywhere
         <div class="outer"></div>
         <div class="inner" v-on:click="scatter($event)"></div>
         </div>
-        <script>
-            var anim = new Vue({
-                el: "#entire",
-                data: {
-                    visible: false
-                },
-                methods:{
-                    scatter: function(event){
-                        var tag = document.createElement("div");
-                        var element = document.getElementById("entire");
-                        element.appendChild(tag);
-                        tag.setAttribute("class", "fragments");
-                        tag.style.top= event.clientY;
-                        tag.style.left= event.clientX;
-                    }
-                }
-            })
+        <script src="main.js">
         </script>
     </body>
 </html>
