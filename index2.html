@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script>
+            function unmute(){
+            var vid = document.getElementById("vid");
+            vid.muted = !vid.muted;
+            if (vid.muted){
+                document.getElementById("button").innerText="Unmute";
+            }else{
+                document.getElementById("button").innerText="Mute";
+            }
+            }
+        </script>
+        <style>
+            div{
+                position: absolute;
+                top:50px;
+                left:850px;
+            }
+            span{
+                width:75px;
+                background-color: teal;
+                border-radius: 5px;
+                text-align: center;
+                padding: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+</body>
+<video id="vid" width="800" height="500" controls autoplay muted>
+  <source src="Rick Astley - Never Gonna Give You Up.mp4" type="video/mp4">
+</video>
+<div>
+<br>
+LOL! you got Rick rolled.<br>
+And that's humiliating cause there's no music.<br>
+Here lessen the humiliation by unmuting<br><br>
+<span title="Lessen my humiliation :'(" onclick="unmute()" id="button">Unmute</span>
+<div>
+</body>
+</html>
